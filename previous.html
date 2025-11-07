@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Previously Played Quizzes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Previously Played Quizzes</h2>
+<ul id="prevList"></ul>
+<a href="index.html">Back to Home</a>
+
+<script>
+let prev = JSON.parse(localStorage.getItem("previousQuizzes")) || [];
+let html = "";
+prev.forEach(p=>{
+  html += `<li>Category: ${p.category} | Score: ${p.score}/${p.total}</li>`;
+});
+document.getElementById("prevList").innerHTML = html;
+</script>
+</body>
+</html>

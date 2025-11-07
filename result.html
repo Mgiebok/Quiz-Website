@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Result</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Quiz Completed 🎉</h2>
+<p>Your Score: <span id="score"></span></p>
+<a href="#" onclick="showWrong()">Click to check wrong questions</a>
+<ul id="wrongList"></ul>
+
+<script>
+document.getElementById("score").innerText = localStorage.getItem("score");
+function showWrong(){
+  let wrong = JSON.parse(localStorage.getItem("wrongQ")) || [];
+  let html = "";
+  wrong.forEach(q=>{
+    html += `<li>${q.q} | Correct: ${q.correct}</li>`;
+  });
+  document.getElementById("wrongList").innerHTML = html;
+}
+</script>
+</body>
+</html>

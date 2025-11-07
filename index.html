@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Hello <span id="username"></span>! Welcome to Quiz System</h1>
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="previous.html">Previously Played Quizzes</a> |
+    <a href="#" onclick="logout()">Logout</a>
+  </nav>
+</header>
+
+<h2>Select a Category:</h2>
+<div class="category-grid">
+  <div class="category-card" onclick="selectCategory('GK')">
+    <img src="images/brain.jpg" alt="GK"><p>General Knowledge</p>
+  </div>
+  <div class="category-card" onclick="selectCategory('Science')">
+    <img src="images/science.jpg" alt="Science"><p>Science</p>
+  </div>
+  <div class="category-card" onclick="selectCategory('Biology')">
+    <img src="images/biology.jpg" alt="Biology"><p>Biology</p>
+  </div>
+  <div class="category-card" onclick="selectCategory('Space')">
+    <img src="images/space.jpg" alt="Space"><p>Space</p>
+  </div>
+  <div class="category-card" onclick="selectCategory('Math')">
+    <img src="images/math.jpg" alt="Math"><p>Math</p>
+  </div>
+  <div class="category-card" onclick="selectCategory('History')">
+    <img src="images/history.jpg" alt="History"><p>History</p>
+  </div>
+  <div class="category-card" onclick="selectCategory('Sports')">
+    <img src="images/sports.jpg" alt="Sports"><p>Sports</p>
+  </div>
+  <div class="category-card" onclick="selectCategory('Tech')">
+    <img src="images/technology.jpg" alt="Tech"><p>Technology</p>
+  </div>
+  <div class="category-card" onclick="selectCategory('Music')">
+    <img src="images/music.jpg" alt="Music"><p>Music</p>
+  </div>
+  <div class="category-card" onclick="selectCategory('Art')">
+    <img src="images/art.jpg" alt="Art"><p>Art</p>
+  </div>
+</div>
+
+<div id="numQuestions" style="display:none; margin-top:20px;">
+  <label>Select Number of Questions:</label>
+  <select id="questionCount">
+    <option value="5">5</option>
+    <option value="10">10</option>
+  </select>
+  <button onclick="startQuiz()">Start Quiz</button>
+</div>
+
+<!-- Include scripts in correct order -->
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+document.getElementById("username").innerText = localStorage.getItem("username") || "Guest";
+function logout(){
+  localStorage.removeItem("username");
+  window.location.href="login.html";
+}
+</script>
+</body>
+</html>
